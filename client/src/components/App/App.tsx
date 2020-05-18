@@ -1,5 +1,4 @@
 import React,{ FunctionComponent } from 'react';
-import styles from './App.module.scss';
 
 import ThermostatDashBoard from "../ThermostatDashBoard/ThermostatDashBoardContainer";
 import { Provider } from "react-redux";
