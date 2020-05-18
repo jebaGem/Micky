@@ -3,6 +3,10 @@
 import axios, { AxiosResponse } from "axios";
 import { Thermostat } from "../types/ThermostatState";
 import { PatchRequest } from "../types/ThermostatState";
+
+const URL = 'http://localhost:9090/';
+const RESPONSE_STATUS_CODE_ACCEPTED = 202;
+
 /**
  * Get operation fetch the data from the backend
  * returns promoises of type Thermostat
@@ -10,9 +14,9 @@ import { PatchRequest } from "../types/ThermostatState";
 export async function fetchThermostatValues(
 ): Promise<AxiosResponse<Thermostat>> {
   try {
-    let res :any= await axios.get('http://localhost:9090/');
+    let res :any= await axios.get(URL);
     //If the staus is 202 call the API again without any delay
-    if(res.status===202){
+    if(res.status===RESPONSE_STATUS_CODE_ACCEPTED){
       fetchThermostatValues();
     }else{
       return res;
@@ -48,7 +52,7 @@ export async function fetchThermostatValues(
  * This method will update the value
  */
 export const updateCurrentSetPoint = async (signal: AbortSignal,data:PatchRequest) =>{
- await fetch('http://localhost:9090/', {
+ await fetch(URL, {
         method: 'PATCH',
         signal,
         headers: { 'Content-Type': 'application/json' },

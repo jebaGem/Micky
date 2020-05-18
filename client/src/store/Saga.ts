@@ -5,6 +5,7 @@ import * as actionTypes from "../types/actions";
 import delay from '@redux-saga/delay-p'
 import { thermostatReducerDefaultState, PatchRequest } from "../types/ThermostatState";
 
+const INTERVAL_IN_MS = 2000;
 
 /**
  * This task will be called whenever the "GET_VALUES" action is dispatched
@@ -17,7 +18,7 @@ function* fetchDataPeriodically() {
   while (true) {   
     yield call(onLoadThermoStatValues);
     if(token.thermostat===thermostatReducerDefaultState){}else{
-      yield call(delay,2000)
+      yield call(delay,INTERVAL_IN_MS)
     }   
   }
 }
