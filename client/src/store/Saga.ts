@@ -1,4 +1,4 @@
-import { put, call, all, fork , select, takeLatest} from "redux-saga/effects";
+import { put, call, all, fork , select, takeLatest, cancelled} from "redux-saga/effects";
 import { fetchThermostatValues,updateCurrentSetPoint } from "../services/Api";
 import * as actionCreators from "../actions/thermostatactions";
 import * as actionTypes from "../types/actions";
@@ -67,8 +67,11 @@ function* setCurrentSetPoint() {
       currentSetpoint:token.thermostat.currentSetpoint,      
     } 
   yield call(updateCurrentSetPoint,abortController.signal,data); 
-  }catch{
-    yield put(actionCreators.setThermostatValuesFailure("Error in API call"));
+  }finally{
+    if (yield(cancelled())) {
+      // Cancel the API call if the saga was cancelled
+      abortController.abort();
+  }
   } 
 }
 
