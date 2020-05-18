@@ -8,49 +8,43 @@
 ## 📝 Table of Contents
 
 - [About](#about)
-- [Getting Started](#getting_started)
+- [How did I solve ?](#solved)
 - [Tests](#tests)
 - [Tools](#tools)
 
 ## 🧐 About <a name = "about"></a>
 
 This repo is made to showcase one of the test assignments that I have done. The task is to build a component which is a light implementation of a thermostat.
-
+##  Completed the Assignment 
 ### Requirements:
 
 > We want you to create a small thermostat dashboard.
-> It needs the following:
+> It needs the following: 
 >
-> - Current temperature in the room.
-> - Current set temperature.
-> - Time of latest update.
-> - Button to increment the temperature by half a degree at the time.
-> - Button to decrement the temperatture by half a degree at the time.
-> - The increment / decrement buttons should not disable when they are clicked. Your user should be able to press the button multiple times to increate / decrease the the temp a couple of degrees. Be aware here about updating the data too many times.
+> - Current temperature in the room. Completed
+> - Current set temperature. Completed
+> - Time of latest update. Completed
+> - Button to increment the temperature by half a degree at the time. Completed
+> - Button to decrement the temperatture by half a degree at the time. Completed
+> - The increment / decrement buttons should not disable when they are clicked. Your user should be able to press the button multiple times to increate / decrease the the temp a couple of degrees. Be aware here about updating the data too many times. Completed
 >
 > We want you to fetch the data at least every 2 seconds to update the current temperature and the time of last update.
 > Be aware of race conditions. The patch api call takes about 1 second to update the data.
 > It also is possible that when you get the data, you will receive a `202` HTTP-code instead of the data.
 > This means that the backend has received your request ,but it can not send you the latest data. When this happens, you >need to retry the API call. (The backend is set to have a 50-50 chance to send the data or return a `202`).
+
+### How Did I solve<a name = "solved"></a>
+> I see most of the requirements are already done. But I felt like that is not right way as every logic is in the same file 
+> First I saperated the UI and state mangagement in different layer. Used redux to solve that.
+> Moved the service call and some operation like time conversion in service folder.
+> Also I used redux saga for the background task like fething api every 2 seconds and and Patch operation, to solve the racing issue.
 >
-> ### API
+> Reused the UI styles and the time conversion logic which is already in the solution.
+
+> ### Libraries Used
 >
-> This starterpack gives you the working API that you need and the basics to start the client project.
-> the API will start at http://localhost:9090
->
-> This will spin up a node express server for the API.
-> There are 2 endpoints for this api.
->
-> | url                    | method |
-> | ---------------------- | ------ |
-> | http://localhost:9090/ | GET    |
-> | http://localhost:9090/ | PATCH  |
-> |                        |        |
->
-> ### Client
->
-> Please put all your custom code in the `./client` directory.
-> The only requirement we have is that you use React, other than that you can do what ever libraries you want.
+> 
+> Redux and Redux Saga. Axios for API call
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
