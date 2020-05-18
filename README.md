@@ -101,25 +101,7 @@ However, Jest was able to find: 'components/Provider.js'
 ```
 To solve this I added some dependencies , but it crashed my application. May be in future I can figure it out the reason.  
 ```sh
-# yarn
-yarn test:client
 
-# npm
-npm run test:client
-```
-
-Or from the `client` folder:
-
-```sh
-# yarn
-yarn test:coverage
-
-# npm
-npm run test:coverage
-```
-
-You may also open the coverage report locally from here:
-`client/coverage/lcov-report/index.html`
 
 ## ⛏️ Tools <a name = "tools"></a>
 
