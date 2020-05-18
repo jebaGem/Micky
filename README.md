@@ -43,8 +43,8 @@ This repo is made to showcase one of the test assignments that I have done. The 
 
 > ### Libraries Used
 >
-> 
 > Redux and Redux Saga. Axios for API call
+
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -89,8 +89,17 @@ There are both unit and e2e tests implemented.
 
 ### Unit tests
 
-In order to check unit tests coverage rates run from the `root` folder:
+```sh
+Unfortunately I couldnt write the unit test. This is because once I start running the test I got the following error (After adding redux and then my Test)
 
+Cannot find module 'react' from 'Provider.js'
+
+However, Jest was able to find: 'components/Provider.js'
+
+    You might want to include a file extension in your import, or update your 'moduleFileExtensions', which is currently ['web.js', 'js', 'web.ts', 'ts', 'web.tsx', 'tsx', 'json', 'web.jsx', 'jsx', 'node'].
+
+```
+To solve this I added some dependencies , but it crashed my application. May be in future I can figure it out the reason.  
 ```sh
 # yarn
 yarn test:client
@@ -111,37 +120,6 @@ npm run test:coverage
 
 You may also open the coverage report locally from here:
 `client/coverage/lcov-report/index.html`
-
-<img src="unit-report.png" alt="Unit tests report screenshot">
-
-### e2e tests
-
-> ⚠️ Keep in mind you should restart server before running e2e tests.
-> Use `yarn start` from the `root` folder to do this.
-
-In order to check e2e tests coverage headlessly(without displaying the browser) run from the `client` folder:
-
-```sh
-# yarn
-yarn e2e
-
-# npm
-npm run e2e
-```
-
-In order to check e2e tests coverage headed(with displaying the browser) run from the `client` folder:
-
-```sh
-# yarn
-yarn e2e:headed
-
-# npm
-npm run e2e:headed
-```
-
-You may find the e2e tests captured video here: `client/cypress/videos/`
-
-<img src="e2e-report.gif" alt="e2e tests report screenshot">
 
 ## ⛏️ Tools <a name = "tools"></a>
 
