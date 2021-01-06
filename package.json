@@ -21,7 +21,7 @@
     "@redux-saga/delay-p": "^1.1.2",
     "@types/react-redux": "^7.1.8",
     "@types/redux-saga": "^0.10.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
